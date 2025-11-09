@@ -1,0 +1,365 @@
+:root {
+  /* ألوان قابلة للتعديل بسهولة */
+  --primary-green: #007a3d;   /* أخضر غامق من الشعار */
+  --secondary-green: #5bb54c; /* أخضر فاتح من الشعار */
+  --text-main: #263238;
+  --text-muted: #616e7c;
+  --bg-page: #f5f7f4;
+  --overlay-light: rgba(255, 255, 255, 0.88);
+}
+
+/* reset بسيط */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.8;
+}
+
+/* روابط وصور */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* حاوية عامة */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* الهيدر */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(245, 247, 244, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  gap: 1.5rem;
+}
+
+/* الشعار */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  height: 54px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.brand-name {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--primary-green);
+}
+
+.brand-tagline {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* القائمة */
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  color: var(--text-main);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.main-nav a:hover {
+  background-color: rgba(0, 122, 61, 0.08);
+  color: var(--primary-green);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-nav ul {
+    justify-content: flex-start;
+  }
+}
+
+/* الأقسام العامة مع خلفيات صور */
+.section {
+  position: relative;
+  padding: 4rem 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* طبقة شفافة فوق الصورة لتهدئة الخلفية */
+.section-layer {
+  background-color: var(--overlay-light);
+  position: relative;
+  z-index: 1;
+  padding: 3rem 0;
+}
+
+/* محتوى القسم */
+.section-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* عناوين الأقسام */
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-heading h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary-green);
+}
+
+.section-label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* شبكات */
+.grid-two {
+  display: grid;
+  grid-template-columns: minmax(0, 2.3fr) minmax(0, 2fr);
+  gap: 1.5rem;
+}
+
+.grid-three {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.3rem;
+}
+
+@media (max-width: 900px) {
+  .grid-two,
+  .grid-three {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* نصوص */
+.text-block p {
+  margin-bottom: 0.7rem;
+  font-size: 0.96rem;
+  color: var(--text-main);
+}
+
+/* قوائم بعلامة صح */
+.check-list {
+  list-style: none;
+  margin-top: 0.3rem;
+}
+
+.check-list li {
+  position: relative;
+  padding-right: 1.4rem;
+  margin-bottom: 0.35rem;
+  font-size: 0.94rem;
+}
+
+.check-list li::before {
+  content: "✔";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 0.8rem;
+  color: var(--secondary-green);
+}
+
+/* بطاقات */
+.info-card,
+.feature-box {
+  background: #ffffff;
+  border-radius: 0.9rem;
+  padding: 1.3rem 1.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+}
+
+.info-card h3,
+.feature-box h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-green);
+}
+
+.info-card p,
+.feature-box p {
+  font-size: 0.94rem;
+  color: var(--text-main);
+}
+
+/* ملاحظات صغيرة أسفل الأقسام */
+.section-footnote {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* هيرو */
+.section-hero {
+  background-image: url("images/hero-food.jpg"); /* ضع صورة مناسبة للمواد الغذائية */
+}
+
+.hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2.4fr) minmax(0, 1.8fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.hero-body {
+  font-size: 0.96rem;
+  color: var(--text-main);
+  margin-bottom: 1.4rem;
+}
+
+.btn-main {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary-green), var(--secondary-green));
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 122, 61, 0.28);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 122, 61, 0.35);
+  opacity: 0.97;
+}
+
+.hero-side-box {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.3rem 1.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+}
+
+.hero-note {
+  font-size: 0.94rem;
+  color: var(--text-main);
+}
+
+@media (max-width: 900px) {
+  .hero-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* خلفيات لباقي الأقسام (غيّر الصور بما يناسبك) */
+.section-about {
+  background-image: url("images/about-farm.jpg"); /* مزرعة / مواشي */
+}
+
+.section-products {
+  background-image: url("images/products-food.jpg"); /* مواد غذائية متنوعة */
+}
+
+.section-clients {
+  background-image: url("images/market-clients.jpg"); /* سوق أو متجر */
+}
+
+.section-contact {
+  background-image: url("images/contact-warehouse.jpg"); /* مخزن أو شاحنات */
+}
+
+/* تواصل معنا */
+.contact-layout {
+  align-items: flex-start;
+}
+
+.contact-list {
+  list-style: none;
+  margin-top: 0.8rem;
+}
+
+.contact-list li {
+  margin-bottom: 0.4rem;
+  font-size: 0.94rem;
+}
+
+.contact-label {
+  color: var(--text-muted);
+  margin-left: 0.3rem;
+}
+
+.contact-value {
+  font-weight: 600;
+}
+
+/* الفوتر */
+.site-footer {
+  padding: 1.5rem 0 2rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
